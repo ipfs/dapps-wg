@@ -16,6 +16,8 @@ To join the conversation:
 
 ## 2023-11-28
 
+[**Recording**](https://www.youtube.com/watch?v=KVYze_VqWnI)
+
 ### Attendees
 * Adin
 * Russell
