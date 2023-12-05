@@ -14,7 +14,63 @@ To join the conversation:
 
 [toc]
 
-## 2023-11-28
+## 5-12-2023
+
+### Attendees
+* Adin
+* Ed (Liquity)
+* Daniel Norman
+* David Justice
+* Dietrich Ayala
+* Lidel
+* Russell
+
+
+### Agenda
+- Revisit the next steps from the previous session
+  - Library for fully compliant gateway resolution in JS (_redirects, index.html, ...) that can be used by Dapp developers and imported into their service worker.
+    - There's some progress on the base components in Helia. 
+    - This includes work on the [Helia gateway implementation](https://github.com/ipfs/helia-http-gateway/)
+        - Conformance tests to ensure compatibility
+    - Additionally there's work by ProbeLab to monitor performance
+  - Service worker integration that handles relative paths, trustless gateway fetching, etc.
+      - https://github.com/ipfs-shipyard/helia-service-worker-gateway
+  - Installer UX integration with service worker
+ - adin: Reach out around the verifiable ETH RPC
+   - I've reached out to some people working on Helios (https://github.com/a16z/helios)
+ - lidel: spec local pet names proposal for gateways
+     - Some progress on the proposal, working to ensure it fits into the web's security model
+     - Still some open questions to resolve before sharing the draft
+     - Some research on where to store the pet name mappings and making them available in the different subdomains
+  - Ed: install.land ENS deploy + architecture diagram 
+      - Some progress on the [architecture diagram](https://excalidraw.com/#json=g8BJsFitQRcMOAmpKqX5p,MMwIbiLamBNPiuMwm03hjg)
+- Pet Names: a local "user-friendly" mapping from a user-provided string to a CID
+- Ed:
+    - Working on a write-up
+    - Working with their legal council to determine whether the approach that their exploring meets the legal requirements of the current regulation.
+- Ed:
+    - Top level integrity is one of the main challenges facing 
+- Adin:
+    - Reached out to Helios devs
+    - Seems feasible to verify ENS names in the browser
+
+
+### Next steps
+- Russell:
+    - Working on the Helia gateway
+    - Monitoring Helia gateway performance with the help of ProbeLab
+    - Abstracting some of the IPFS fetch stuff to be more generic and usable in the browser too
+- Daniel: 
+    - Write up on the current state of matters for IPFS docs
+- Lidel:
+    - Work on a the draft spec for the pet name proposal and local resolution 
+- Ed:
+    - Continue with the architecture diagram and the article
+    - Hopefuly get to deploying the install.land approach to IPFS
+    - Liquity hosting a Twitter space with some of legal folks. Rokti devs will also be joining. Would be good to get us to also join.
+
+
+## 28-11-2023
 
 [**Recording**](https://www.youtube.com/watch?v=KVYze_VqWnI)
 
@@ -23,7 +79,7 @@ To join the conversation:
 * Russell
 * lidel
 * Yiannis
-* Ed (Liquidy)
+* Ed (Liquity)
 * Daniel Norman
 * David Justice
 * Henrique Dias
