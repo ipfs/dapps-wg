@@ -14,7 +14,9 @@ To join the conversation:
 
 [toc]
 
-## 5-12-2023
+## Meeting 2 (5-12-2023)
+
+[**Recording**](https://www.youtube.com/watch?v=eiGGnOdcAVs)
 
 ### Attendees
 * Adin
@@ -70,7 +72,7 @@ To join the conversation:
     - Liquity hosting a Twitter space with some of legal folks. Rokti devs will also be joining. Would be good to get us to also join.
 
 
-## 28-11-2023
+## Meeting 1 (28-11-2023)
 
 [**Recording**](https://www.youtube.com/watch?v=KVYze_VqWnI)
 
