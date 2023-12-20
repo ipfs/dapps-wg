@@ -14,6 +14,72 @@ To join the conversation:
 
 [toc]
 
+## Meeting 3 (19-12-2023)
+
+[**▶️ Meeting Recording**](https://www.youtube.com/watch?v=3HLpjGpq94U)
+
+### Attendees
+
+- Ed
+- Adin
+- Robin Berjon
+- Bengo
+- David Justice
+- Daniel Norman
+- Hannah 
+- Mosh
+- Rohit
+- Harrison Hines
+
+### Agenda
+
+- Ed: [app-integrity-verifier-extension](https://github.com/edmulraney/app-integrity-verifier-extension)
+    - This is currently relying on Chrome specific APIs
+    - What about supply chain attacks on the distribution of the extension source
+        - no concrete thoughtsd
+    - next steps:
+        - combine this with ipfs:// protocol handler
+        - See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/protocol_handlers
+        - Since this is just for verifying the top level resource, when doing this with IPFS, using a raw block for the top level document would ensure easy matching of the CIDs
+- https://www.liquity.org//blog/decentralizing-defi-frontends-protecting-users-and-protocol-authors
+    - Robin: This is super interesting. A few questions to make sure that I understand the proposal well:
+    1. The apps that are installed using this mechanism are then fully offline and can only interact with browser APIs (including the wallet), right? I assume that they are served locally with a strict CSP of sorts?
+        - No restrictions or changes. The main difference is that the service worker is pulling the front end's source code and making it available on the local device.
+    3. I got a covid booster so my brain isn't fully there, but it seems unclear to me what the installer is in terms of format. Does it need to be more than a manifest?
+    4. I'm guessing it's not an immediate concern, but is there interest in private loading of installers? It seems like it could be a plus. (Especially if installing an app means it will regularly phone home to check for updates.)
+    5. As always, the client is the weak spot (c.f. what Chrome does with people's data). Have you considered what (legal) rules it needs to operate under to durably ensure alignment with the user?
+    6. One of IPFS's weak spots in security is media types. If everyone's on the exact same client it might be less of an issue but to build something rock solid it would be good to nail this. Have you given thought to that?
+    - Adin: What are the downsides/limitations to `chrome.debugging`? Example, why isn't everyone struggling with the move from blocking requests in MV3 doing this?
+    - 
+    - Ed: The idea is to make this as simple as possible without making too many assumptions about the app. 
+    - There's obviously still the risk of dapps doing "stupid things" that expose them to a wider risk surface by loading subresources from other origins and supply chain attacks. 
+    - This was not build to improve the security of the dapp. Rather it's focused on ensuring local operation and verifiability/integrity. 
+    - Robin: not sure if the legal side is solved without ensuring that none of the sub-resources are also not hosted on centralised infrastructure.
+    - Ed: This is addressing the problem of ensuring the user is running the same code published by the dapp developer. It doesn't solve the supply chain problem of attacks on specific dependencies, e.g. the ledger SDK.
+    - Hannah: would be nice to have the web subresource integrity spec support images and other tags. 
+    - Ben: Could we just pass static files around, i.e. index.html
+    - Robin: You need the extension to verify the root resource you’re loading.
+-  Helia Fetch efforts
+    - https://github.com/ipfs/helia/issues/348
+- [IPFS Signer](https://signer.ipfs.garden/): 
+    - Experimental playground for IPFS & Dapp patterns in browsers
+
+### Action items
+- Investigate whether we have any problems with range requests using the js-unixfs-exporter
+- 
+
+### Links
+* https://github.com/edmulraney/app-integrity-verifier-extension?tab=readme-ov-file
+* https://blog.ipfs.tech/2023-ipfs-companion-mv3-update/#what-is-mv3
+* https://github.com/olizilla/see-other
+* This is a good video of Mauve's ipfs `fetch` from Iceland 2022 https://www.youtube.com/watch?v=_omtM02_uYw
+* https://github.com/web3-storage/dagula
+* https://github.com/pknowles/ImageFilter/blob/master/imagefinder.js
+* https://github.com/filecoin-saturn/js-client
+* https://github.com/filecoin-saturn/browser-client
+* "Here’s some helia fetching via bitswap via content-claims in js 'helia bitswap + content-claims' hot off the press" -bengo  https://github.com/web3-storage/hoverboard/pull/20/files#diff-0386cb667aac3b2cdcfcbc94c8ff1027f42ed5945e2835d9fe3d3f40565f919cR136
+
+---
 ## Meeting 2 (5-12-2023)
 
 [**Recording**](https://www.youtube.com/watch?v=eiGGnOdcAVs)
