@@ -14,6 +14,48 @@ To join the conversation:
 
 [toc]
 
+## Meeting 4 (2-1-2024)
+
+<!-- [**▶️ Meeting Recording**](TODO) -->
+
+### Attendees
+- adin (@aschmahmann)
+- lidel
+- Daniel
+- Henrique
+- Derrick Hammer
+- Fred
+- Robin
+
+
+### Agenda & Meeting notes
+
+- Recap previous session
+    - Debugger API in Ed's extension
+    - Lidel: using the API comes with a performance penalty
+        - The debugger API is used by WebRecorder to take a snapshot of the page. In that instance it's ok in terms of the user experience.
+        - This may be a problem for users 
+        - What do you do when the verification fails?
+    - How could this be productized: 
+        - Extension per Dapp which has the trust anchored through a hard coded CID
+        - Make it more generic and use an external trust anchor, i.e. DNSLink/ENS resolution. 
+    - The Blocking API
+        - Only allows blocking or redirection.
+        - With manifest v3 we have less capabilities, even though you can still do the same things in an extension with more steps.
+    - What we're missing:
+        - https://github.com/ipfs/in-web-browsers/issues/212
+        - This would take time
+    - Derrick:
+        - Work on the extension and overcome some challenges around origin isolation: https://git.lumeweb.com/LumeWeb/extension
+        - https://git.lumeweb.com/LumeWeb/libkernel/src/branch/develop
+        - https://github.com/SkynetLabs/skynet-kernel
+- Moving this meeting an hour earlier 
+    - No opposition based on vote in call.
+
+### Links
+
+---
+
 ## Meeting 3 (19-12-2023)
 
 [**▶️ Meeting Recording**](https://www.youtube.com/watch?v=3HLpjGpq94U)
