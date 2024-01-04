@@ -16,7 +16,7 @@ To join the conversation:
 
 ## Meeting 4 (2-1-2024)
 
-<!-- [**▶️ Meeting Recording**](TODO) -->
+[**▶️ Meeting Recording**](https://youtu.be/uQQZtW3SOuI)
 
 ### Attendees
 - adin (@aschmahmann)
