@@ -16,20 +16,20 @@ The challenge of verifying CIDs within the browser context varies depending on w
 
 - Establish verified retrieval as the norm for retrieving CIDs on the web
 - Decrease the reliance on trusted gateways
-- Improve the experience of Dapps on IPFS with better tooling, both for developers and users,
+- Improve the experience of Dapps on IPFS with better tooling, both for developers and users
 
 ### Concrete goals for Q1
 
-- **IPFS Shipyard:** Fetch like library (`helia-fetch`) for verified in-browser retrieval of CIDs for better DX
-    - Uses delegated routing HTTP endpoint
-    - Supports configurable trustless gateways
+- **IPFS Shipyard:** Fetch like library (`helia-fetch`) for verified in-browser retrieval of CIDs with better DX
+    - Initially support configurable [trustless gateways](https://specs.ipfs.tech/http-gateways/trustless-gateway/), e.g. ipfs.io and cloudflare-ipfs.com or self hosted.
+    - Later uses delegated routing HTTP endpoint and direct retrieval
     - Can be integrated into a service worker
     - https://github.com/ipfs/web3-fetch/pull/1
 - Research and prototype tooling to help users of dapps on IPFS reduce trust through verification
     - “Top level”/”end-to-end integrity” Dapp verification **without** Kubo
         - Ed (liquity): [Local Dapp installer](https://www.liquity.org/blog/decentralizing-defi-frontends-protecting-users-and-protocol-authors)
         - Ed: [Browser extension using Chrome’s debugger api to verify hash of initial payload](https://github.com/edmulraney/app-integrity-verifier-extension)
-        - **IPFS Shipyard:** Service worker gateway with `helia-fetch`
+    - **IPFS Shipyard:** Service worker in-browser gateway built on top of  `helia-fetch`
 - Advocate for verified retrieval
     - Read-to-run examples
     - Docs
@@ -37,18 +37,42 @@ The challenge of verifying CIDs within the browser context varies depending on w
 
 ## Meeting 5 (16-1-2024)
 
-### Agenda & Meeting notes
+### Agenda
 
-* Daniel: Status update and an update on the WG's goal
+* Daniel: Update on the WG's goal
+* Status updates on ongoing initiatives
+    * https://github.com/ipfs/helia/pull/372
+    * https://github.com/ipfs/web3-fetch/pull/1
 * Hannah: Trustless CAR Verification via ipfs-unixfs-exporter
     * Lack of DFS: https://github.com/ipfs/js-ipfs-unixfs/issues/359
         * Saturn Fork Implementation: https://github.com/filecoin-saturn/js-ipfs-unixfs/commit/ee5a574742b6958d8699f8f0807be023d80a49a0
+        * PR with blockReadConcurrency option: https://github.com/ipfs/js-ipfs-unixfs/pull/361
     * Range requests appear to work! (previous report was fake news)
         * Additional Saturn work to make range requests go all the way to service worker
             * https://github.com/filecoin-saturn/js-client/pull/48
             * https://github.com/filecoin-saturn/browser-client/pull/28
-* TODO - ADD YOURS
 
+### Meeting notes
+
+- Adin: Good news here is the UnixFS/CARs/etc. story is roughly the same story as happened in Go (with bifrost-gateway, etc.). Can mostly replicate the solutions here too 😄
+- Alex: You can control concurrency to replicate DFS with the regular importer - set these both to 1
+    - https://github.com/ipfs/js-ipfs-unixfs/blob/master/packages/ipfs-unixfs-importer/src/index.ts#L137
+    - https://github.com/ipfs/js-ipfs-unixfs/blob/master/packages/ipfs-unixfs-importer/src/index.ts#L143
+- Alex (16 Jan 2024, 4:22 pm) As in, you can use those settings to write blocks to the blockstore one at a time, in the order the CAR file expects
+- Adin: I recall Rod making some comment about this working for files, but that if downloading an entire directory would traverse the directory as BFS instead of DFS. Might be wrong here though.  Either way Saturn seems unlikely to care here
+- Oli: some curious goodies from the dag.haus
+    - a CAR-centric re-write of unixfs-importer - https://github.com/ipld/js-unixfs (we use that in the web3.storage upload client as we're focused on streaming CARs rather than persistent blockstores
+    - work just started on extracting a block (not unixfs-entity centric) the ipfs dag traversal logic to a stand alone library from unix-fs-exporter and trustless gateway spec (currently trapped in dagula, soon to be standalone lib)
+- Hannah
+    - Complete work on range requests
+    - Ideally they'd like to avoid continuing to use a fork of js-ipfs-unixfs.
+- Ben from eth.limo
+    - Working on a migration of their infra for better performance
+    - Seeing some problems with IPNS records
+    - For Q2, exploring trustless gateways, maybe exploring Rainbow
+    - Also exploring local installers to reduce trust reliance
+    - According to a query on Dune, a large percentage of ENS names are using IPNS
+- 
 ## Meeting 4 (2-1-2024)
 
 [**▶️ Meeting Recording**](https://youtu.be/uQQZtW3SOuI)
