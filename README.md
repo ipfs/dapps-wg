@@ -1,18 +1,53 @@
----
-title: IPFS DApps Working Group
-description: This IPFS DApps WG is for those invested in making the experience of IPFS DApps better, whether via improving IPFS implementations or building other tooling. It’s a forcing function to engage on this critical topic for dapp stakeholders and to problem solve together with action.
-# image: https://hackmd.io/screenshot.png
----
+# IPFS DApps Working Group
 
 [![hackmd-github-sync-badge](https://hackmd.io/LS4eUSZXTriQ0j8UIjDl4A/badge)](https://hackmd.io/LS4eUSZXTriQ0j8UIjDl4A)
 
-
-To join the conversation:
-- [📆 **Join the WG meetings**](https://lu.ma/ipfs-dapps)
-- [💬 **Take part in the discussions**](https://github.com/ipfs/dapps-wg/discussions)
+[📆 **Join the WG meetings**](https://lu.ma/ipfs-dapps)
 
 
-[toc]
+### Problem statement: trust or verify
+
+Today, IPFS stands out as the predominant decentralized network for hosting dapp frontends and static assets, such as NFT images. Nevertheless, users commonly retrieve these CIDs from trusted gateways with browsers without verifying. This undermines the benefits of verifiablity in IPFS, as users place implicit trust in gateways, leaving them vulnerable to various attacks.
+
+The challenge of verifying CIDs within the browser context varies depending on what the CID is. It proves more straightforward to verify static assets like images and JSON compared to verifying the CID of a frontend. In the case of a frontend's CID, the only viable method involves running a separate IPFS node that exposes a gateway for verification purposes.
+
+
+### High level goals for the IPFS Dapps WG
+
+- Establish verified retrieval as the norm for retrieving CIDs on the web
+- Decrease the reliance on trusted gateways
+- Improve the experience of Dapps on IPFS with better tooling, both for developers and users,
+
+### Concrete goals for Q1
+
+- **IPFS Shipyard:** Fetch like library (`helia-fetch`) for verified in-browser retrieval of CIDs for better DX
+    - Uses delegated routing HTTP endpoint
+    - Supports configurable trustless gateways
+    - Can be integrated into a service worker
+    - https://github.com/ipfs/web3-fetch/pull/1
+- Research and prototype tooling to help users of dapps on IPFS reduce trust through verification
+    - “Top level”/”end-to-end integrity” Dapp verification **without** Kubo
+        - Ed (liquity): [Local Dapp installer](https://www.liquity.org/blog/decentralizing-defi-frontends-protecting-users-and-protocol-authors)
+        - Ed: [Browser extension using Chrome’s debugger api to verify hash of initial payload](https://github.com/edmulraney/app-integrity-verifier-extension)
+        - **IPFS Shipyard:** Service worker gateway with `helia-fetch`
+- Advocate for verified retrieval
+    - Read-to-run examples
+    - Docs
+    - Blog posts
+
+## Meeting 5 (16-1-2024)
+
+### Agenda & Meeting notes
+
+* Daniel: Status update and an update on the WG's goal
+* Hannah: Trustless CAR Verification via ipfs-unixfs-exporter
+    * Lack of DFS: https://github.com/ipfs/js-ipfs-unixfs/issues/359
+        * Saturn Fork Implementation: https://github.com/filecoin-saturn/js-ipfs-unixfs/commit/ee5a574742b6958d8699f8f0807be023d80a49a0
+    * Range requests appear to work! (previous report was fake news)
+        * Additional Saturn work to make range requests go all the way to service worker
+            * https://github.com/filecoin-saturn/js-client/pull/48
+            * https://github.com/filecoin-saturn/browser-client/pull/28
+* TODO - ADD YOURS
 
 ## Meeting 4 (2-1-2024)
 
@@ -51,8 +86,9 @@ To join the conversation:
         - https://github.com/SkynetLabs/skynet-kernel
 - Moving this meeting an hour earlier 
     - No opposition based on vote in call.
-
 ### Links
+
+
 
 ---
 
