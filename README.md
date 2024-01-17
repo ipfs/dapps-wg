@@ -37,6 +37,8 @@ The challenge of verifying CIDs within the browser context varies depending on w
 
 ## Meeting 5 (16-1-2024)
 
+[**▶️ Meeting Recording**](https://www.youtube.com/watch?v=mAha0YR9Qqk)
+
 ### Agenda
 
 * Daniel: Update on the WG's goal
