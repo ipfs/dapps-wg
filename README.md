@@ -35,6 +35,24 @@ The challenge of verifying CIDs within the browser context varies depending on w
     - Docs
     - Blog posts
 
+## Meeting 6 (30-1-2024)
+
+[**▶️ Meeting Recording**](https://www.youtube.com/watch?v=5n3ieAb-FWE)
+
+### Agenda
+
+* Status updates on ongoing initiatives
+   * https://github.com/ipfs/helia/pull/392/
+   * https://github.com/ipfs/helia-http-gateway/pull/63
+   * https://github.com/ipfs-shipyard/helia-service-worker-gateway/pull/17
+   * blog.ipfs.tech: [The State of Dapps on IPFS: Trust vs. Verification](https://blog.ipfs.tech/dapps-ipfs/)
+* Russell: What we want to initially test against
+   * ipns://app.aave.com
+   * ipns://app.spark.fi
+   * ipns://app.olympusdao.finance
+* https://www.dpid.org/ (CID-based,  ISBN-like decentralized identifiers with greated transparency and verifiability)
+    * https://desci.com/ example https://nodes.desci.com/dpid/46
+
 ## Meeting 5 (16-1-2024)
 
 [**▶️ Meeting Recording**](https://www.youtube.com/watch?v=mAha0YR9Qqk)
