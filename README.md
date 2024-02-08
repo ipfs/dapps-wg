@@ -20,11 +20,11 @@ The challenge of verifying CIDs within the browser context varies depending on w
 
 ### Concrete goals for Q1
 
-- **IPFS Shipyard:** Fetch like library (`helia-fetch`) for verified in-browser retrieval of CIDs with better DX
+- **IPFS Shipyard:** Fetch like library [`@helia/verified-fetch`](https://github.com/ipfs/helia/tree/main/packages/verified-fetch) for verified in-browser retrieval of CIDs with better DX
     - Initially support configurable [trustless gateways](https://specs.ipfs.tech/http-gateways/trustless-gateway/), e.g. ipfs.io and cloudflare-ipfs.com or self hosted.
     - Later uses delegated routing HTTP endpoint and direct retrieval
     - Can be integrated into a service worker
-    - https://github.com/ipfs/web3-fetch/pull/1
+    - See [`@helia/verified-fetch`](https://github.com/ipfs/helia/tree/main/packages/verified-fetch)
 - Research and prototype tooling to help users of dapps on IPFS reduce trust through verification
     - “Top level”/”end-to-end integrity” Dapp verification **without** Kubo
         - Ed (liquity): [Local Dapp installer](https://www.liquity.org/blog/decentralizing-defi-frontends-protecting-users-and-protocol-authors)
