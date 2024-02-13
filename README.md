@@ -35,6 +35,34 @@ The challenge of verifying CIDs within the browser context varies depending on w
     - Docs
     - Blog posts
 
+## Meeting 7 (13-2-2024)
+
+### Agenda
+* Status updates on ongoing initiatives
+    * @helia/verified-fetch
+        * Merged [initial PR](https://github.com/ipfs/helia/pull/392/)
+        * Open discussion around how to handle [dag-json and dag-cbor](https://github.com/ipfs/helia/pull/426)
+        * [Browser example PR in helia-example repo](https://github.com/ipfs-examples/helia-examples/pull/285) 
+    * Service worker gateway
+        * https://github.com/ipfs-shipyard/helia-service-worker-gateway/pull/17
+        * Demo: https://blog-libp2p-io.ipns.sw.sgtpooki.com/
+    * ADD yours
+
+### Meeting notes
+
+- Try loading the following CID from the SW gateway: https://ipfs.io/ipfs/QmYXenhk6uREiF6zWDCCEv3doNYManYTaqiJBqPLJwUBbq
+
+### Attendees
+ - Achingbrain
+ - Tj (https://tap.spaceaware.io/ https://github.com/digitalarsenal/spacedatastandards.org)
+ - Russel
+ - Adin
+ - Lidel
+ - Kanishk (Fleek)
+ - Mohsin (Ceramic)
+    
+
+
 ## Meeting 6 (30-1-2024)
 
 [**▶️ Meeting Recording**](https://www.youtube.com/watch?v=5n3ieAb-FWE)
