@@ -2,7 +2,9 @@
 
 [![hackmd-github-sync-badge](https://hackmd.io/LS4eUSZXTriQ0j8UIjDl4A/badge)](https://hackmd.io/LS4eUSZXTriQ0j8UIjDl4A)
 
-[📆 **Join the WG meetings**](https://lu.ma/ipfs-dapps)
+- [📆 **Join the WG meetings**](https://lu.ma/ipfs-dapps)
+- [🎥 **Watch previous meetings**](https://youtube.com/playlist?list=PLuhRWgmPaHtRdxz9aOAJyJxbO7hJZVPL6&feature=shared)
+
 
 
 ### Problem statement: trust or verify
@@ -35,6 +37,20 @@ The challenge of verifying CIDs within the browser context varies depending on w
     - Docs
     - Blog posts
 
+## Meeting 8 (27-2-2024)
+
+### Agenda
+* Status updates on ongoing initiatives
+    * [Service worker gateway](https://github.com/ipfs-shipyard/helia-service-worker-gateway/)
+        * Development deployment for tracking progress at `inbrowser.dev`. 
+            * Demo: https://docs.ipfs.tech/ website loaded and verified in SW: https://docs-ipfs-tech.ipns.inbrowser.dev
+            * Remaining work for MVP: https://github.com/ipfs-shipyard/helia-service-worker-gateway/issues/31
+        * We will move it at some point to the ipfs org, but postponing this to avoid breaking deployment to fleek.
+* [@verified-fetch](https://github.com/ipfs/helia/tree/main/packages/verified-fetch)
+    * Besides the HAMT fix, we should be good to go
+    * Could release the more flexible API after (with support for traditional HTTPS gateway urls) 
+    * Could move out of the helia mono-repo
+
 ## Meeting 7 (13-2-2024)
 
 ### Agenda
@@ -46,7 +62,6 @@ The challenge of verifying CIDs within the browser context varies depending on w
     * Service worker gateway
         * https://github.com/ipfs-shipyard/helia-service-worker-gateway/pull/17
         * Demo: https://blog-libp2p-io.ipns.sw.sgtpooki.com/
-    * ADD yours
 
 ### Meeting notes
 
@@ -60,8 +75,6 @@ The challenge of verifying CIDs within the browser context varies depending on w
  - Lidel
  - Kanishk (Fleek)
  - Mohsin (Ceramic)
-    
-
 
 ## Meeting 6 (30-1-2024)
 
