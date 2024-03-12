@@ -31,11 +31,37 @@ The challenge of verifying CIDs within the browser context varies depending on w
     - “Top level”/”end-to-end integrity” Dapp verification **without** Kubo
         - Ed (liquity): [Local Dapp installer](https://www.liquity.org/blog/decentralizing-defi-frontends-protecting-users-and-protocol-authors)
         - Ed: [Browser extension using Chrome’s debugger api to verify hash of initial payload](https://github.com/edmulraney/app-integrity-verifier-extension)
-    - **IPFS Shipyard:** Service worker in-browser gateway built on top of  `helia-fetch`
+    - **IPFS Shipyard:** Service worker in-browser gateway built on top of  `@helia/verified-fetch`
 - Advocate for verified retrieval
     - Read-to-run examples
     - Docs
     - Blog posts
+
+## Meeting 9 (12-3-2024)
+
+### Agenda
+* Status updates on ongoing initiatives
+    * [Service worker gateway](https://github.com/ipfs-shipyard/helia-service-worker-gateway/)
+       * HAMT support landed
+    * [@helia/verified-fetch](https://github.com/ipfs/helia-verified-fetch)
+        * range requests
+        * DNS over HTTPS endpoints in Helia (https://github.com/ipfs/helia-verified-fetch/pull/13)
+
+
+### Meeting notes
+
+- improved cache-control in someguy responses: https://github.com/ipfs/boxo/pull/584 (no released yet)
+- Default IPNS values
+    - Boxo/Kubo: 
+        - lifetime: ~48 hours
+        - TTL: 1 hour
+* Somehow related, Delegated Routing via HTTP /routing/v1 can be tracked in:
+  - https://specs.ipfs.tech/routing/http-routing-v1/
+      - read-only routing server: https://github.com/ipfs/someguy
+  - [IPIP-379](https://github.com/ipfs/specs/pull/379) introduces signed provider and peer records which can be delegated to other services
+  - wip implementation of server with support of POST /routing/v1: https://github.com/ipfs/someguy/pull/40
+
+
 
 ## Meeting 8 (27-2-2024)
 
