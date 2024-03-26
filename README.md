@@ -22,9 +22,9 @@ The challenge of verifying CIDs within the browser context varies depending on w
 
 ### Concrete goals for Q1
 
-- **IPFS Shipyard:** Fetch like library [`@helia/verified-fetch`](https://github.com/ipfs/helia/tree/main/packages/verified-fetch) for verified in-browser retrieval of CIDs with better DX
-    - Initially support configurable [trustless gateways](https://specs.ipfs.tech/http-gateways/trustless-gateway/), e.g. ipfs.io and cloudflare-ipfs.com or self hosted.
-    - Later uses delegated routing HTTP endpoint and direct retrieval
+- **IPFS Shipyard:** Fetch like library [`@helia/verified-fetch`](https://github.com/ipfs/helia-verified-fetch) for verified in-browser retrieval of CIDs with better DX
+    - Initially support configurable [trustless gateways](https://specs.ipfs.tech/http-gateways/trustless-gateway/), e.g. `ipfs.io`, `trustless-gateway.link`, `cloudflare-ipfs.com` or self hosted.
+    - Later uses [delegated routing HTTP endpoint](https://specs.ipfs.tech/routing/http-routing-v1/) and direct retrieval 
     - Can be integrated into a service worker
     - See [`@helia/verified-fetch`](https://github.com/ipfs/helia/tree/main/packages/verified-fetch)
 - Research and prototype tooling to help users of dapps on IPFS reduce trust through verification
@@ -36,6 +36,22 @@ The challenge of verifying CIDs within the browser context varies depending on w
     - Read-to-run examples
     - Docs
     - Blog posts
+
+## Meeting 10 (26-3-2024)
+### Agenda
+* Status updates on ongoing initiatives
+    * [Service worker gateway](https://github.com/ipfs-shipyard/service-worker-gateway/)
+        * TL;DR: Still a lot of work in progress until can be used instead of `dweb.link`. 
+        * An instance at `inbrowser.dev` WIP: Problems with DNSLink leading to problems loading the "loader", i.e. the SW gateway
+        * [Epic: service-worker-gateway Productionisation](https://github.com/ipfs-shipyard/service-worker-gateway/issues/31)
+    * [@helia/verified-fetch](https://github.com/ipfs/helia-verified-fetch)
+        * Example: https://github.com/ipfs-examples/helia-examples/pull/285
+        * TL;DR: Mostly ready (HAMT, index.html for web hosting, HTTP URLs)
+    * ipfs/specs: [IPIP-462: Ipfs-Path-Affinity on Gateways](https://github.com/ipfs/specs/pull/462)
+        * TL;DR: Decrease routing latency and the reliance on fetching all blocks from a single gateway
+
+### Meeting notes
+
 
 ## Meeting 9 (12-3-2024)
 
