@@ -5,8 +5,6 @@
 - [📆 **Join the WG meetings**](https://lu.ma/ipfs-dapps)
 - [🎥 **Watch previous meetings**](https://youtube.com/playlist?list=PLuhRWgmPaHtRdxz9aOAJyJxbO7hJZVPL6&feature=shared)
 
-
-
 ### Problem statement: trust or verify
 
 Today, IPFS stands out as the predominant decentralized network for hosting dapp frontends and static assets, such as NFT images. Nevertheless, users commonly retrieve these CIDs from trusted gateways with browsers without verifying. This undermines the benefits of verifiablity in IPFS, as users place implicit trust in gateways, leaving them vulnerable to various attacks.
@@ -37,7 +35,49 @@ The challenge of verifying CIDs within the browser context varies depending on w
     - Docs
     - Blog posts
 
+## Meeting 11 (9-4-2024)
+
+### Agenda
+
+* Status updates on ongoing initiatives
+    * Helia
+        * TTL is respected in IPNS records for cachwe
+        * Bitswap/Trustless Gateway sessions
+            * One of the immediate benefits is that we are not constantly hitting the same configured gateways in favour of a more diverse set of providers.
+            * Sessions are a way to scope block requests to peers based on which peers are providing the root block
+            * Initial testing reveals this is more efficient
+            * Question: How are those gateways discovered/selected?
+                * You can configure two things: 
+                    * recursive gateways (ones that fetch blocks they don't have) 
+                    * delegated routing endpoints aka routers
+                * results from the delegated routing endpoint will be used to fetch individual blocks
+            * Question: how far are we from being able to put Helia in my browser extension and making data added there discoverable to the network?
+                * (see recording for Adin's full answer)
+                * TL;DR: currently connectivity poses a limitation on the content routing options you can use. With WebTransport and WebRTC  
+    * [Service worker gateway](https://github.com/ipfs-shipyard/service-worker-gateway/)
+        * new [README](https://github.com/ipfs-shipyard/service-worker-gateway/#readme) with project goals
+        * wip [productization](https://github.com/ipfs-shipyard/helia-service-worker-gateway/issues/31) / [milestones](https://github.com/ipfs-shipyard/service-worker-gateway/milestones)
+        * Noteworthy here that once helia is released with sessions work, SW gateway would be able to leverage direct retrival 
+        * Gateway conformance tests: Russel is working on integrating the existing conformance tests into the SW gateway release process
+    * [@helia/verified-fetch](https://github.com/ipfs/helia-verified-fetch)
+    * ipfs/specs:
+        * [IPIP-462: Ipfs-Path-Affinity on Gateways](https://github.com/ipfs/specs/pull/462)
+    * Firefox beta has WebTransport + certificates hashes! Stable is out next week
+    * Meet Interplanetary Shipyard: https://blog.ipfs.tech/shipyard-hello-world/
+    * [Salief](https://github.com/salieflewis) from [River](https://www.river.ph)
+        * [Source code](https://github.com/1ifeworld/river)
+        * [Email salief](salief@lifeworld.co)
+
+### Meeting notes
+
+### Action items
+
+- [] Document recursive vs. non-recursive gateways
+- [name=Daniel Norman] Add to SW gateway README how you integrate into your app, or existing sw
+
+
 ## Meeting 10 (26-3-2024)
+
 ### Agenda
 * Status updates on ongoing initiatives
     * [Service worker gateway](https://github.com/ipfs-shipyard/service-worker-gateway/)
