@@ -2,7 +2,7 @@
 
 [![hackmd-github-sync-badge](https://hackmd.io/LS4eUSZXTriQ0j8UIjDl4A/badge)](https://hackmd.io/LS4eUSZXTriQ0j8UIjDl4A)
 
-- [📆 **Join the WG meetings**](https://lu.ma/ipfs-dapps)
+- [📆 **Join the WG meetings**](https://lu.ma/ipfs?tag=dapps)
 - [🎥 **Watch previous meetings**](https://youtube.com/playlist?list=PLuhRWgmPaHtRdxz9aOAJyJxbO7hJZVPL6&feature=shared)
 
 ### Problem statement: trust or verify
@@ -35,13 +35,47 @@ The challenge of verifying CIDs within the browser context varies depending on w
     - Docs
     - Blog posts
 
+## Meeting 12 (23-04-2024)
+
+### Agenda
+* Housekeeping: [New Calendar link on Luma](https://lu.ma/ipfs?tag=dapps)
+* Status updates on ongoing initiatives
+    * [Helia](https://github.com/ipfs/helia/)
+        * Sessions shipped last week
+            * Sending requests to a subset of peers, i.e. "narrowing"
+            * [Sessions with trustless gateways](https://github.com/ipfs/helia/pull/515):
+                * We take the results from the delegated routing endpoint
+                * We don't really get that many actionable/usable gateway from the delegated routing endpoint
+                * The gateway block broker currently has a bunch of static gateways
+                * The idea is to refactor the code a bit so that these preconfigured static gateways implement the routing interface.
+        * Problems with someguy peer routing
+            * https://github.com/ipfs/someguy/issues/53
+            * No active probing, means it would sometimes just return providers with no peer records
+            * Recent Boxo release filters out private IPs (impacts someguy)
+        * [Helia Benchmarks are also merged and looking good](https://github.com/ipfs/helia/tree/main/benchmarks/transfer)
+        * 
+    * [Verified-fetch](https://github.com/ipfs/helia-verified-fetch/)
+        * [Announcement Blog post](https://blog.ipfs.tech/verified-fetch/)
+    * [Service Worker Gateway](https://github.com/ipfs-shipyard/service-worker-gateway)
+        * Currently uses helia/http
+
+### Notes
+
+```
+add --cid-version 1 -Q  -n
+bafkreibel3v5edjm2tebwxkkyj6hg5dcph2dnvrph32syrjkg2pg555wca
+
+ipfs routing findprovs bafkreibel3v5edjm2tebwxkkyj6hg5dcph2dnvrph32syrjkg2pg555wca → relay providers
+```
+
+
 ## Meeting 11 (9-4-2024)
 
 ### Agenda
 
 * Status updates on ongoing initiatives
     * Helia
-        * TTL is respected in IPNS records for cachwe
+        * TTL is respected in IPNS records for cache
         * Bitswap/Trustless Gateway sessions
             * One of the immediate benefits is that we are not constantly hitting the same configured gateways in favour of a more diverse set of providers.
             * Sessions are a way to scope block requests to peers based on which peers are providing the root block
